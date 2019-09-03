@@ -1,0 +1,63 @@
+.:
+total 2792
+drwxrwxrwx   4 sumantra phd         1536 Jun 16 14:14 ./
+drwxrwxrwx   3 sumantra phd          512 Jun 16 14:03 ../
+-rwxr-xr-x   1 sumantra phd        11633 Jun 16 12:16 cal_eval.c*
+-rwxr-xr-x   1 sumantra phd        74126 Jun 16 12:16 cal_main.c*
+-rwxr-xr-x   1 sumantra phd         9706 Jun 16 12:17 cal_main.h*
+-rwxr-xr-x   1 sumantra phd        13509 Jun 16 12:16 cal_tran.c*
+-rwxr-xr-x   1 sumantra phd         7299 Jun 16 12:16 cal_util.c*
+-rwxr-xr-x   1 sumantra phd         3598 Jun 16 12:16 ccal.c*
+-rwxr-xr-x   1 sumantra phd         3373 Jun 16 12:16 ccal_fo.c*
+-rwxr-xr-x   1 sumantra phd         6102 Jun 16 14:00 changes.txt*
+-rwxr-xr-x   1 sumantra phd         6486 Jun 16 12:16 csyn.c*
+-rwxr-xr-x   1 sumantra phd         3617 Jun 16 12:16 ecal.c*
+-rwxr-xr-x   1 sumantra phd        23216 Jun 16 12:16 ecalmain.c*
+-rwxr-xr-x   1 sumantra phd        11424 Jun 16 14:00 faq.txt*
+-rwxr-xr-x   1 sumantra phd         1859 Jun 16 12:16 gasdev.c*
+-rwxr-xr-x   1 sumantra phd         3008 Jun 16 12:16 ic2wc.c*
+-rwxr-xr-x   1 sumantra phd         3050 Jun 16 14:00 index.txt*
+-rwxr-xr-x   1 sumantra phd         3439 Jun 16 13:58 makefile*
+-rwxr-xr-x   1 sumantra phd         2598 Jun 16 13:58 makefile.bor*
+-rwxr-xr-x   1 sumantra phd         2632 Jun 16 13:58 makefile.unx*
+drwxrwxrwx   2 sumantra phd          512 Jun 16 14:02 matrix/
+drwxrwxrwx   2 sumantra phd          512 Jun 16 14:02 minpack/
+-rwxr-xr-x   1 sumantra phd         3597 Jun 16 12:16 nccal.c*
+-rwxr-xr-x   1 sumantra phd         3951 Jun 16 12:16 nccal_fo.c*
+-rwxr-xr-x   1 sumantra phd         6247 Jun 16 12:16 ncsyn.c*
+-rwxr-xr-x   1 sumantra phd         5427 Jun 16 14:00 notes.txt*
+-rwxr-xr-x   1 sumantra phd         4356 Jun 16 12:16 stereo_functions.c*
+-rwxr-xr-x   1 sumantra phd         7456 Jun 16 12:16 stereo_functions_BACKUP.c*
+-rwxrwxrwx   1 sumantra phd       574984 Jun 16 14:11 stereo_statistics*
+-rwxr-xr-x   1 sumantra phd         3799 Jun 16 12:16 stereo_statistics.c*
+-rwxrwxrwx   1 sumantra phd       574804 Jun 16 14:11 stereo_triangulate*
+-rw-rw-rw-   1 sumantra phd         2828 Jun 16 14:10 stereo_triangulate.c
+-rw-rw-rw-   1 sumantra phd         2869 Jun 16 14:09 wc2ic.c
+
+./matrix:
+total 32
+drwxrwxrwx   2 sumantra phd          512 Jun 16 14:02 ./
+drwxrwxrwx   4 sumantra phd         1536 Jun 16 14:14 ../
+-rwxr-xr-x   1 sumantra phd        11353 Jun 16 14:02 matrix.c*
+-rwxr-xr-x   1 sumantra phd          667 Jun 16 14:02 matrix.h*
+
+./minpack:
+total 540
+drwxrwxrwx   2 sumantra phd          512 Jun 16 14:02 ./
+drwxrwxrwx   4 sumantra phd         1536 Jun 16 14:14 ../
+-rwxr-xr-x   1 sumantra phd         6638 Jun 16 14:02 dpmpar.c*
+-rwxr-xr-x   1 sumantra phd         5976 Jun 16 14:02 dpmpar.f*
+-rwxr-xr-x   1 sumantra phd         3642 Jun 16 14:02 enorm.c*
+-rwxr-xr-x   1 sumantra phd         3135 Jun 16 14:02 enorm.f*
+-rwxr-xr-x   1 sumantra phd         4318 Jun 16 14:02 f2c.h*
+-rwxr-xr-x   1 sumantra phd       141128 Jun 16 14:02 f2c.ps*
+-rwxr-xr-x   1 sumantra phd         4256 Jun 16 14:02 fdjac2.c*
+-rwxr-xr-x   1 sumantra phd         3340 Jun 16 14:02 fdjac2.f*
+-rwxr-xr-x   1 sumantra phd        17348 Jun 16 14:02 lmdif.c*
+-rwxr-xr-x   1 sumantra phd        15544 Jun 16 14:02 lmdif.f*
+-rwxr-xr-x   1 sumantra phd         9643 Jun 16 14:02 lmpar.c*
+-rwxr-xr-x   1 sumantra phd         8243 Jun 16 14:02 lmpar.f*
+-rwxr-xr-x   1 sumantra phd         6772 Jun 16 14:02 qrfac.c*
+-rwxr-xr-x   1 sumantra phd         5417 Jun 16 14:02 qrfac.f*
+-rwxr-xr-x   1 sumantra phd         7427 Jun 16 14:02 qrsolv.c*
+-rwxr-xr-x   1 sumantra phd         6178 Jun 16 14:02 qrsolv.f*

@@ -1,0 +1,59 @@
+shatadru:/home/sumantra/tsai>nccal_fo left.16mm.c.data pulnix
+
+Non-coplanar calibration (full optimization) 
+
+camera type: Pulnix
+
+data file: left.16mm.c.data  (200 points)
+
+       f = 16.719473  [mm]
+
+       kappa1 = 9.285967e-04  [1/mm^2]
+
+       Tx = -555.831446,  Ty = -114.888204,  Tz = 627.965357  [mm]
+
+       Rx = 10.176959,  Ry = -20.537514,  Rz = -1.206801  [deg]
+
+       R
+        0.936235  -0.041243  -0.348946
+       -0.019723   0.985354  -0.169377
+        0.350821   0.165459   0.921709
+
+       sx = 1.014846
+       Cx = 211.608156,  Cy = 147.474638  [pixels]
+
+       Tz / f = 37.558920
+
+       distorted image plane error:
+         mean = 1.075826,  stddev = 0.316421,  max = 1.926213  [pix],  sse = 251.404515  [pix^2]
+
+       undistorted image plane error:
+         mean = 1.084397,  stddev = 0.317767,  max = 1.931788  [pix],  sse = 255.277724  [pix^2]
+
+       object space error:
+         mean = 1.425382,  stddev = 0.473815,  max = 2.950982  [mm],  sse = 451.018456  [mm^2]
+
+       normalized calibration error:  2.655112
+
+ 5.0000000000e+02
+ 3.8400000000e+02
+ 1.7600000000e-02
+ 2.2758620690e-02
+ 2.2916666667e-02
+ 2.2758620690e-02
+ 2.1160815569e+02
+ 1.4747463828e+02
+ 1.0148455417e+00
+ 1.6719473411e+01
+ 9.2859667346e-04
+-5.5583144577e+02
+-1.1488820396e+02
+ 6.2796535707e+02
+ 1.7762144803e-01
+-3.5844723806e-01
+-2.1062656137e-02
+ 0.0000000000e+00
+ 0.0000000000e+00
+shatadru:/home/sumantra/tsai>
+
+Script done on Saturday 25 October 2014 11:33:09 PM IST

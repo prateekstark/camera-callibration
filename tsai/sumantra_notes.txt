@@ -1,0 +1,9 @@
+Some of Sumantra's notes to get the old code to run well:
+- LAPACK and BLAS may not be installed on the system
+  On a Debian machine, the packages to install are libblas-dev
+  and liblapack-dev. These will have support for F77, so there
+  may not be any need to install f2c (though I did it, just to be sure)
+- A `make all' with the updated makefile works, in spite of the
+  old K&R C used in the code
+- Use the non-coplanar calibration method with full optimisation
+- The camera type to be selected for the given dataset (A3) is pulnix
