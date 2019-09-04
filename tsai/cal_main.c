@@ -226,19 +226,29 @@ void      initialize_photometrics_parms ()
 {
     strcpy (camera_type, "Photometrics Star I");
 
-    cp.Ncx = 576;		/* [sel]        */
-    cp.Nfx = 576;		/* [pix]        */
-    cp.dx = 0.023;		/* [mm/sel]     */
-    cp.dy = 0.023;		/* [mm/sel]     */
+    // cp.Ncx = 576;		/* [sel]        */
+    // cp.Nfx = 576;		/* [pix]        */
+    // cp.dx = 0.023;		/* [mm/sel]     */
+    // cp.dy = 0.023;		/* [mm/sel]     */
+    // cp.dpx = cp.dx * cp.Ncx / cp.Nfx;	/* [mm/pix]     */
+    // cp.dpy = cp.dy;		/* [mm/pix]     */
+    // cp.Cx = 576 / 2;		/* [pix]        */
+    // cp.Cy = 384 / 2;		/* [pix]        */
+    // cp.sx = 1.0;		/* []		 */
+    //
+    // /* something a bit more realistic */
+    // cp.Cx = 258.0;
+    // cp.Cy = 204.0;
+    cp.Ncx = 500;		/* [sel]        */
+    cp.Nfx = 384;		/* [pix]        */
+    cp.dx = 8.8/500;		/* [mm/sel]     */
+    cp.dy = 6.6/290;		/* [mm/sel]     */
     cp.dpx = cp.dx * cp.Ncx / cp.Nfx;	/* [mm/pix]     */
     cp.dpy = cp.dy;		/* [mm/pix]     */
-    cp.Cx = 576 / 2;		/* [pix]        */
-    cp.Cy = 384 / 2;		/* [pix]        */
+    cp.Cx = 384 / 2;		/* [pix]        */
+    cp.Cy = 288 / 2;		/* [pix]        */
     cp.sx = 1.0;		/* []		 */
 
-    /* something a bit more realistic */
-    cp.Cx = 258.0;
-    cp.Cy = 204.0;
 }
 
 
@@ -750,7 +760,7 @@ void      cc_compute_exact_f_and_Tz ()
 	    diag[i] = 1.0;             /* some user-defined values */
     }
 
-    /* perform the optimization */ 
+    /* perform the optimization */
     lmdif_ (cc_compute_exact_f_and_Tz_error,
             &m, &n, x, fvec, &ftol, &xtol, &gtol, &maxfev, &epsfcn,
             diag, &mode, &factor, &nprint, &info, &nfev, fjac, &ldfjac,
@@ -916,9 +926,9 @@ void      cc_five_parm_optimization_with_late_distortion_removal ()
 #define NPARAMS 5
 
     int       i;
- 
+
     /* Parameters needed by MINPACK's lmdif() */
- 
+
     integer     m = cd.point_count;
     integer     n = NPARAMS;
     doublereal  x[NPARAMS];
@@ -948,17 +958,17 @@ void      cc_five_parm_optimization_with_late_distortion_removal ()
        fprintf(stderr,"calloc: Cannot allocate workspace fvec\n");
        exit(-1);
     }
- 
+
     if (( fjac = (doublereal *) calloc ((unsigned int) m*n, (unsigned int) sizeof(doublereal))) == NULL ) {
        fprintf(stderr,"calloc: Cannot allocate workspace fjac\n");
        exit(-1);
     }
- 
+
     if (( wa4 = (doublereal *) calloc ((unsigned int) m, (unsigned int) sizeof(doublereal))) == NULL ) {
        fprintf(stderr,"calloc: Cannot allocate workspace wa4\n");
        exit(-1);
     }
- 
+
     /* use the current calibration constants as an initial guess */
     x[0] = cc.f;
     x[1] = cc.Tz;
@@ -971,13 +981,13 @@ void      cc_five_parm_optimization_with_late_distortion_removal ()
         for (i = 0; i < NPARAMS; i++)
             diag[i] = 1.0;             /* some user-defined values */
     }
- 
+
     /* perform the optimization */
     lmdif_ (cc_five_parm_optimization_with_late_distortion_removal_error,
             &m, &n, x, fvec, &ftol, &xtol, &gtol, &maxfev, &epsfcn,
             diag, &mode, &factor, &nprint, &info, &nfev, fjac, &ldfjac,
             ipvt, qtf, wa1, wa2, wa3, wa4);
- 
+
     /* update the calibration and camera constants */
     cc.f = x[0];
     cc.Tz = x[1];
@@ -994,7 +1004,7 @@ void      cc_five_parm_optimization_with_late_distortion_removal ()
     /* print the number of function calls during iteration */
     fprintf(stderr,"info: %d nfev: %d\n\n",info,nfev);
 #endif
- 
+
 #undef NPARAMS
 }
 
@@ -1087,9 +1097,9 @@ void      cc_five_parm_optimization_with_early_distortion_removal ()
 #define NPARAMS 5
 
     int       i;
- 
+
     /* Parameters needed by MINPACK's lmdif() */
- 
+
     integer     m = cd.point_count;
     integer     n = NPARAMS;
     doublereal  x[NPARAMS];
@@ -1119,12 +1129,12 @@ void      cc_five_parm_optimization_with_early_distortion_removal ()
        fprintf(stderr,"calloc: Cannot allocate workspace fvec\n");
        exit(-1);
     }
- 
+
     if (( fjac = (doublereal *) calloc ((unsigned int) m*n, (unsigned int) sizeof(doublereal))) == NULL ) {
        fprintf(stderr,"calloc: Cannot allocate workspace fjac\n");
        exit(-1);
     }
- 
+
     if (( wa4 = (doublereal *) calloc ((unsigned int) m, (unsigned int) sizeof(doublereal))) == NULL ) {
        fprintf(stderr,"calloc: Cannot allocate workspace wa4\n");
        exit(-1);
@@ -1142,7 +1152,7 @@ void      cc_five_parm_optimization_with_early_distortion_removal ()
         for (i = 0; i < NPARAMS; i++)
             diag[i] = 1.0;             /* some user-defined values */
     }
- 
+
     /* perform the optimization */
     lmdif_ (cc_five_parm_optimization_with_early_distortion_removal_error,
             &m, &n, x, fvec, &ftol, &xtol, &gtol, &maxfev, &epsfcn,
@@ -1241,7 +1251,7 @@ void      cc_nic_optimization_error (m_ptr, n_ptr, params, err)
 	Yu_1 = f * yc / zc;
 
 	/* convert from 2D image coordinates to distorted sensor coordinates */
-	Xd_ = cp.dpx * (cd.Xf[i] - cp.Cx) / cp.sx; 
+	Xd_ = cp.dpx * (cd.Xf[i] - cp.Cx) / cp.sx;
 	Yd_ = cp.dpy * (cd.Yf[i] - cp.Cy);
 
 	/* convert from distorted sensor coordinates to undistorted sensor plane coordinates */
@@ -1297,7 +1307,7 @@ void      cc_nic_optimization ()
        fprintf(stderr,"calloc: Cannot allocate workspace fjac\n");
        exit(-1);
     }
- 
+
     if (( wa4 = (doublereal *) calloc ((unsigned int) m, (unsigned int) sizeof(doublereal))) == NULL ) {
        fprintf(stderr,"calloc: Cannot allocate workspace wa4\n");
        exit(-1);
@@ -1318,7 +1328,7 @@ void      cc_nic_optimization ()
         for (i = 0; i < NPARAMS; i++)
             diag[i] = 1.0;             /* some user-defined values */
     }
- 
+
     /* perform the optimization */
     lmdif_ (cc_nic_optimization_error,
             &m, &n, x, fvec, &ftol, &xtol, &gtol, &maxfev, &epsfcn,
@@ -1426,7 +1436,7 @@ void      cc_full_optimization_error (m_ptr, n_ptr, params, err)
 	Yu_1 = f * yc / zc;
 
 	/* convert from 2D image coordinates to distorted sensor coordinates */
-	Xd_ = cp.dpx * (cd.Xf[i] - Cx) / cp.sx; 
+	Xd_ = cp.dpx * (cd.Xf[i] - Cx) / cp.sx;
 	Yd_ = cp.dpy * (cd.Yf[i] - Cy);
 
 	/* convert from distorted sensor coordinates to undistorted sensor plane coordinates */
@@ -1921,7 +1931,7 @@ void      ncc_compute_exact_f_and_Tz ()
         for (i = 0; i < NPARAMS; i++)
             diag[i] = 1.0;             /* some user-defined values */
     }
- 
+
     /* perform the optimization */
     lmdif_ (ncc_compute_exact_f_and_Tz_error,
             &m, &n, x, fvec, &ftol, &xtol, &gtol, &maxfev, &epsfcn,
@@ -2277,7 +2287,7 @@ void      ncc_full_optimization ()
     int     i;
 
     /* Parameters needed by MINPACK's lmdif() */
- 
+
     integer     m = cd.point_count;
     integer     n = NPARAMS;
     doublereal  x[NPARAMS];
@@ -2307,12 +2317,12 @@ void      ncc_full_optimization ()
        fprintf(stderr,"calloc: Cannot allocate workspace fvec\n");
        exit(-1);
     }
- 
+
     if (( fjac = (doublereal *) calloc ((unsigned int) m*n, (unsigned int) sizeof(doublereal))) == NULL ) {
        fprintf(stderr,"calloc: Cannot allocate workspace fjac\n");
        exit(-1);
     }
- 
+
     if (( wa4 = (doublereal *) calloc ((unsigned int) m, (unsigned int) sizeof(doublereal))) == NULL ) {
        fprintf(stderr,"calloc: Cannot allocate workspace wa4\n");
        exit(-1);
@@ -2336,7 +2346,7 @@ void      ncc_full_optimization ()
         for (i = 0; i < NPARAMS; i++)
             diag[i] = 1.0;             /* some user-defined values */
     }
- 
+
     /* perform the optimization */
     lmdif_ (ncc_full_optimization_error,
             &m, &n, x, fvec, &ftol, &xtol, &gtol, &maxfev, &epsfcn,
